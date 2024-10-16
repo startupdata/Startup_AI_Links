@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Startup_AI_Links</title>
+  <link rel="icon" type="image/x-icon" href="./favico.png">
+  <link rel="stylesheet" href="style.css">
+  
+</head>
+
+<body>
+  <div class="loading-overlay" style="display: none;">
+    <img src="./Loading....gif" alt="">
+  </div>
+  <div class="formbold-main-wrapper">
+
+    <div class="formbold-form-wrapper">
+      <center>
+        <img src="./Suggestion...gif" class="logo">
+      </center>
+   
+ 
+      <form action="9" method="POST" name="formName">
+        <div class="formbold-form-title">
+          <h2>Startup_AI_Links</h2>
+          <!-- <p>Your Data is Securely Saved</p> -->
+        </div>
+
+        <div class="formbold-input-flex">
+          <div>
+            <label for="firstname" class="formbold-form-label">
+             Your Name
+            </label>
+            <input type="text" name="Name" id="firstname" class="formbold-form-input" required
+              placeholder="Your Name" />
+          </div>
+          <div>
+            <label for="lastname" class="formbold-form-label"> Tool Name </label>
+            <input type="text" name="Tool Name" id="lastname" class="formbold-form-input" required
+              placeholder="Midjourney"/>
+          </div>
+        </div>
+
+        <div class="formbold-input-flex">
+          <div>
+            <label for="email" class="formbold-form-label"> Tool URL </label>
+            <input type="text" name="URL" id="email" class="formbold-form-input" required
+              placeholder="www.midjourney.com" />
+          </div>
+          <div>
+            <label for="phone" class="formbold-form-label"> YouTube Reference </label>
+            <input type="text" name="YouTube Reference" id="phone" class="formbold-form-input" 
+              placeholder="YT Video Link" />
+          </div>
+        </div>
+
+       
+      
+
+
+        <div class="formbold-mb-3">
+          <label for="address2" class="formbold-form-label">
+          </label>
+         
+        </div>
+
+        <hr><br>
+        <p class="conditions"><b>Note:</b> Your Data is securely stored and will only be kept temporarily for the required duration.</p><br>
+        <div class="formbold-checkbox-wrapper">
+          </label> 
+        </div>
+        <!-- <input type="submit" name="submit" id="But" class="formbold-btn" onclick="fun()" required> -->
+        <button class="subbutton" type="submit" id="But" onclick="validateForm(event)">Submit</button>
+        <button class="formbold-btn , reset" type="button" id="resetButton">Reset</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycby4nxUPFWL8ulwKGr65SJ97k_Dc-BLPlfGC-TZSW1HC05diJZcrCgBaITM-jj4Ngs5B/exec';
+    const form = document.forms['formName'];
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+
+      // Display loading animation
+      const loadingOverlay = document.querySelector('.loading-overlay');
+      loadingOverlay.style.display = 'flex';
+
+      // Submit the form
+      fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+        .then(response => {
+          // Hide loading animation
+
+          loadingOverlay.style.display = 'none';
+          // Display success message
+          // alert("Thank you! Your form is submitted successfully.");
+
+
+          // Reload the page
+          window.location.reload();
+          // swal("Good job!", "You clicked the button!", "success");
+          // alert("Thank you! Your form is submitted successfully.");
+
+          window.location.href = 'popup.html';
+
+
+        })
+        .catch(error => {
+          // Hide loading animation
+          loadingOverlay.style.display = 'none';
+          // Display error message
+          console.error('Error!', error.message);
+        });
+    });
+
+    resetButton.addEventListener('click', () => {
+      form.reset(); // Reset form fields
+    });
+
+
+  </script>
+
+
+</body>
+
+</html>
